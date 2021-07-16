@@ -20,7 +20,7 @@ Users were asked a series of questions to identify the features of galaxies foll
 
 [Decision Tree, Willett et al](https://static.zooniverse.org/data.galaxyzoo.org/gz_trees/images/gz2_tree_crop.pdf)
 
-The researchers applied weights and debiased the responses (the details are layed out [here](https://arxiv.org/pdf/1308.3496v2.pdf)) generating a proability for each of the morphology classes.
+The researchers applied weights and debiased the responses (outlined [here](https://arxiv.org/pdf/1308.3496v2.pdf)) generating a proability for each of the morphology classes.
 Some of these classes include:
 - Elliptical
 - Elliptical Cigar-shaped

@@ -28,16 +28,9 @@ class CNN():
 
         self.n_classes = n_classes
         self.target_size = target_size
-        # self.input_size = target_size+(3)
         self.batch_size = batch_size
         self.n_steps = n_steps
         self.n_epoch = n_epoch
-
-        # self.n_train = len(os.listdir(train_dir))
-        # self.n_val = len(os.listdir(val_dir))
-        # self.n_test = len(os.listdir(test_dir))
-
-        # self.preprocessing = preprocessing
         self.history = None
 
     def conv(self):
@@ -123,9 +116,13 @@ class CNN():
             shuffle=False
         )
     def fit(self):
+        '''
+        Fit the model using train images and update model based on validation scores
+        '''
         self.conv()
         self.get_generator()
         
+        #optimizers to choose from
         adam = optimizers.Adam()
         rms = optimizers.RMSprop()
         sgd = optimizers.SGD(lr=0.001, decay=1e-2, momentum=0.9, nesterov=True)
@@ -183,6 +180,9 @@ class CNN():
         print(self.batch[1])
     
     def predict(self):
+        '''
+        Uses saved best trained model to predict galaxy class probabilities
+        '''
         self.best_model = load_model('evaluate/checkpoint.hdf5')
         predicts = self.best_model.predict_generator(self.test_gen, 
                                             steps = self.n_test//self.batch_size,
@@ -195,13 +195,15 @@ class CNN():
                                             verbose=1
                                             )
         self.filenames = self.test_gen.filenames
-        results = pd.DataFrame(data=predicts,index=self.filenames,columns=self.test_df.columns[1:])
+        results = pd.DataFrame(data=predicts,index=self.filenames[:predicts.shape[0]],columns=self.test_df.columns[1:])
         
 
         return results, metrics
     
     def plot_history(self):
-
+        '''
+        Plots mse and loss of training and validation data for every epoch
+        '''
         mse = self.history.history['mse']
         val_mse = self.history.history['val_mse']
         loss = self.history.history['loss']
@@ -232,7 +234,7 @@ if __name__=='__main__':
     n_classes = 37 #number of feature columns to train/predict
     target_size=(64,64) #this is what the images are cropped to in data_pipe.py
     batch_size = 32
-    n_steps=3200
+    n_steps=3200 #optional parameter to not train on entire dataset
     n_epoch=25
 
     model = CNN(train_dir,val_dir,test_dir, n_classes, target_size, batch_size, n_steps,n_epoch)

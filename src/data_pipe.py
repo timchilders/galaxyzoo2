@@ -13,6 +13,17 @@ from skimage.util import img_as_ubyte
 
 
 def train_val_test(df, data_dir, img_dir, train_ratio = 0.6, val_ratio = 0.2, test_ratio=0.2, shape=(64,64)):
+    '''
+    Splits images into seperate training, testing and validation directories
+
+    Inputs:
+        df - dataframe containg classificaiton labels
+        data_dir - directory to put img subfolders in
+        img_dir - directory of original images
+        train/val/test_ratio - ratio of split
+        shape - shape to resize images to
+    '''
+    
     train_dir = data_dir+'/train'
     val_dir = data_dir+'/validation'
     test_dir = data_dir+'/test'
@@ -55,6 +66,12 @@ def make_dir(base_dir):
     os.mkdir(test_dir)
 
 def process_img(path,shape):
+    '''
+    Crops and resizes images
+    Inputs:
+        path - path to img
+        shape - desired resize dimensions
+    '''
     img = plt.imread(path)
     img = img[106:106*3,106:106*3]
     img = resize(img,shape)
@@ -62,7 +79,11 @@ def process_img(path,shape):
 
 def make_targets(df, train_dir, val_dir, test_dir, train_ids,val_ids,test_ids):
     '''
-    Creates target dataframes for each subset of images
+    Creates target dataframes for each subset of images.
+    Inputs:
+        df - table with classifications for all data
+        train_dir - location of training directory
+        train_ids - jpg ids of images
     '''
     train_df = pd.DataFrame({'asset_id':train_ids})
     train_df = pd.merge(train_df,df, on='asset_id', how='left')

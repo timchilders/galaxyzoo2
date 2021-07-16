@@ -2,7 +2,7 @@
 
 ## Background
 
-Understanding the complex structure of galaxies and their distribution in the universe helps astronomers piece together our own cosmic origins. However, thhe sheer number of galaxies make it impossible for the lone astronomer to classify galaxies individually.
+Understanding the complex structure of galaxies and their distribution in the universe helps astronomers piece together our own cosmic origins. However, the sheer number of galaxies make it impossible for the lone astronomer to classify galaxies individually.
 The goal of this project is to use the power of computer vision and deep neural networks to classiy the structure of a large sample of galaxies. To accomplish this task, I built a Convolutional Neural Network (CNN) using Keras and trained it on pre-labeled images of galaxies.
 
 ## Data

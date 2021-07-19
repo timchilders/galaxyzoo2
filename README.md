@@ -61,16 +61,16 @@ After creating a prediction table, I converted both prediction and the original 
 ###### Correct:
 
 
-|         barred-spiral         |        edge-view spiral        |           elliptical           |              spiral             |
-|:-----------------------------:|:------------------------------:|:------------------------------:|:-------------------------------:|
-|![](img/galaxies/tBSpir_pSpir.png)|![](img/galaxies/tEdg_pEdg.png)|![](img/galaxies/tElip_pElip.png)|![](img/galaxies/tSpir_pSpir.png)|
+|        edge-view spiral        |           elliptical           |              spiral             |
+|:------------------------------:|:------------------------------:|:-------------------------------:|
+|![](img/galaxies/tEdg_pEdg.png)|![](img/galaxies/tElip_pElip.png)|![](img/galaxies/tSpir_pSpir.png)|
 
 ###### Incorrect:
 
 
-|         barred-spiral         |        edge-view spiral        |           elliptical           |              spiral             |
-|:-----------------------------:|:------------------------------:|:------------------------------:|:-------------------------------:|
-|![](img/galaxies/tBSpir_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|![](img/galaxies/tElip_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|
+|        edge-view spiral        |           elliptical           |              spiral             |
+|:------------------------------:|:------------------------------:|:-------------------------------:|
+|![](img/galaxies/tSpir_pEdg.png)|![](img/galaxies/tElip_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|
 
 
 ## Conclusion:

@@ -55,7 +55,9 @@ Parameters:
 - Batch size:           Epochs:        25  (converged before 10)
 
 ## Results
-The final model had a loss of 0.35 and MSE of 0.05.
+The final model had a loss of 0.35 and MSE of 0.05. I plotted the loss and MSE per epoch as the model ran:
+![](evaluate/loss_history.png)    ![](evaluate/mse_history.png)
+
 After creating a prediction table, I converted both prediction and the original table labels to Booleans to compare how the galaxy classifications compare. I plotted some of the images with both the prediction and classification labels below:
 
 ###### Correct:
@@ -74,7 +76,7 @@ After creating a prediction table, I converted both prediction and the original 
 
 
 ## Conclusion:
-The model was only run on the full set of training data once given the time constraints of the project. Additionaly it would have been usefull to include class weight balancing because the classes were inbalanced. I would also like to run the model with less image augmentation to see how it performs. Additionally it would be interesting to compare the model to other 'state of the art' models such as Xception or ResNet.
+Given a loss 0.35, this model could use improvement. One consideration is this model does not include class weight balancing, which may improve the model's predictions. The model also appears to be underfitting with the training data. This may be due to the image augmentation implemented for the training data. Additionally, it would be interesting to compare the model to other 'state of the art' models such as Xception or ResNet.
 
 ## References:
 

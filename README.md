@@ -2,7 +2,7 @@
 
 ## Background
 
-Understanding the complex structure of galaxies and their distribution in the universe helps astronomers piece together our own cosmic origins. However, thhe sheer number of galaxies make it impossible for the lone astronomer to classify galaxies individually.
+Understanding the complex structure of galaxies and their distribution in the universe helps astronomers piece together our own cosmic origins. However, the sheer number of galaxies make it impossible for the lone astronomer to classify galaxies individually.
 The goal of this project is to use the power of computer vision and deep neural networks to classiy the structure of a large sample of galaxies. To accomplish this task, I built a Convolutional Neural Network (CNN) using Keras and trained it on pre-labeled images of galaxies.
 
 ## Data
@@ -20,7 +20,7 @@ Users were asked a series of questions to identify the features of galaxies foll
 
 [Decision Tree, Willett et al](https://static.zooniverse.org/data.galaxyzoo.org/gz_trees/images/gz2_tree_crop.pdf)
 
-The researchers applied weights and debiased the responses (the details are layed out [here](https://arxiv.org/pdf/1308.3496v2.pdf)) generating a proability for each of the morphology classes.
+The researchers applied weights and debiased the responses (outlined [here](https://arxiv.org/pdf/1308.3496v2.pdf)) generating a proability for each of the morphology classes.
 Some of these classes include:
 - Elliptical
 - Elliptical Cigar-shaped
@@ -55,26 +55,28 @@ Parameters:
 - Batch size:           Epochs:        25  (converged before 10)
 
 ## Results
-The final model had a loss of 0.35 and MSE of 0.05.
+The final model had a loss of 0.35 and MSE of 0.05. I plotted the loss and MSE per epoch as the model ran:
+![](evaluate/loss_history.png)    ![](evaluate/mse_history.png)
+
 After creating a prediction table, I converted both prediction and the original table labels to Booleans to compare how the galaxy classifications compare. I plotted some of the images with both the prediction and classification labels below:
 
 ###### Correct:
 
 
-|         barred-spiral         |        edge-view spiral        |           elliptical           |              spiral             |
-|:-----------------------------:|:------------------------------:|:------------------------------:|:-------------------------------:|
-|![](img/galaxies/tBSpir_pSpir.png)|![](img/galaxies/tEdg_pEdg.png)|![](img/galaxies/tElip_pElip.png)|![](img/galaxies/tSpir_pSpir.png)|
+|        edge-view spiral        |           elliptical           |              spiral             |
+|:------------------------------:|:------------------------------:|:-------------------------------:|
+|![](img/galaxies/tEdg_pEdg.png)|![](img/galaxies/tElip_pElip.png)|![](img/galaxies/tSpir_pSpir.png)|
 
 ###### Incorrect:
 
 
-|         barred-spiral         |        edge-view spiral        |           elliptical           |              spiral             |
-|:-----------------------------:|:------------------------------:|:------------------------------:|:-------------------------------:|
-|![](img/galaxies/tBSpir_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|![](img/galaxies/tElip_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|
+|        edge-view spiral        |           elliptical           |              spiral             |
+|:------------------------------:|:------------------------------:|:-------------------------------:|
+|![](img/galaxies/tSpir_pEdg.png)|![](img/galaxies/tElip_pSpir.png)|![](img/galaxies/tSpir_pEdg.png)|
 
 
 ## Conclusion:
-The model was only run on the full set of training data once given the time constraints of the project. Additionaly it would have been usefull to include class weight balancing because the classes were inbalanced. I would also like to run the model with less image augmentation to see how it performs. Additionally it would be interesting to compare the model to other 'state of the art' models such as Xception or ResNet.
+Given a loss 0.35, this model could use improvement. One consideration is this model does not include class weight balancing, which may improve the model's predictions. The model also appears to be underfitting with the training data. This may be due to the image augmentation implemented for the training data. Additionally, it would be interesting to compare the model to other 'state of the art' models such as Xception or ResNet.
 
 ## References:
 

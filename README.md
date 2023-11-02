@@ -1,5 +1,5 @@
 # GalaxyID: Using Convolutional Neural Networks to Classify Galaxies
-
+![](img/readme/Potw1422a.jpg)
 ## Background
 
 Understanding the complex structure of galaxies and their distribution in the universe helps astronomers piece together our own cosmic origins. However, the sheer number of galaxies make it impossible for the lone astronomer to classify galaxies individually.
